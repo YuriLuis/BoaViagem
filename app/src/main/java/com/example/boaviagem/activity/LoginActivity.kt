@@ -1,5 +1,6 @@
 package com.example.boaviagem.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,9 @@ import com.example.boaviagem.R
 import com.example.boaviagem.model.Login
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class LoginActivity : AppCompatActivity() {
 
@@ -15,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var textInputEditTextLogin : TextInputEditText
     private lateinit var textInputLayoutSenha : TextInputLayout
     private lateinit var textInputEditTextSenha : TextInputEditText
+
+    private  var autenticacao : FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,27 +37,63 @@ class LoginActivity : AppCompatActivity() {
         textInputEditTextSenha = findViewById(R.id.textInputEditTextSenha)
     }
 
-     fun entrar(view : View){
+    fun entrar(view: View){
+        var email = textInputEditTextLogin.text.toString()
+        var senha = textInputEditTextSenha.text.toString()
 
-        val login = Login(textInputEditTextLogin.text.toString(),
-                        textInputEditTextSenha.text.toString())
+        if (campoNaoInvalido()){
+            logarUsuario()
 
-        if (login.validaLogin() and validaCamposActivityLogin()){
-            Toast.makeText(this, "Sucesso ao entrar!", Toast.LENGTH_LONG).show()
-        }else {
-            Toast.makeText(this, "Erro ao entrar!", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun validaCamposActivityLogin():Boolean{
-        if (textInputEditTextLogin.text.isNullOrEmpty()){
+     fun logarUsuario(){
+
+         var email = textInputEditTextLogin.text.toString()
+         var senha = textInputEditTextSenha.text.toString()
+
+         autenticacao.signInWithEmailAndPassword(email, senha)
+             .addOnCompleteListener(this) { task ->
+                 if (task.isSuccessful) {
+                        abrirTelaPrincipal()
+                 } else {
+                    var excecao = ""
+                     try {
+                         throw task.getException()!!;
+                     }catch (e : FirebaseAuthInvalidUserException){
+                         excecao = "E-mail ou senha não correspondem a um usuário cadastrado!";
+                     }catch (e : FirebaseAuthInvalidCredentialsException){
+                         excecao = "Usuário não está cadastrado!";
+                     }catch (e : Exception){
+                         excecao = "Erro ao cadastrar usuario : " + e.message;
+                         e.printStackTrace();
+                     }
+                     Toast.makeText(this, excecao, Toast.LENGTH_LONG).show()
+                 }
+             }
+    }
+
+    fun abrirTelaPrincipal(){
+        startActivity(Intent(this,PrincipalActivity::class.java ).apply {})
+    }
+
+    fun abriTelaCadastro(view: View){
+        startActivity(Intent(this,CriaLoginActivity::class.java ).apply {})
+    }
+
+    private fun campoNaoInvalido():Boolean{
+        var login = textInputEditTextLogin.text.toString()
+        var senha = textInputEditTextSenha.text.toString()
+        if (campoEhVazio(login)){
             textInputEditTextLogin.error = "Campo Obrigatório"
             return false
         }
-        if (textInputEditTextSenha.text.isNullOrEmpty()){
+        if (campoEhVazio(senha)){
             textInputEditTextLogin.error = "Campo Obrigatório"
             return false
         }
         return true
     }
+
+    private fun campoEhVazio(campo : String) = campo.isNullOrEmpty()
 }

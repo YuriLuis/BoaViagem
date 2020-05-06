@@ -8,12 +8,13 @@ android {
 
     defaultConfig {
         applicationId "com.example.boaviagem"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -35,4 +36,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.1.0-alpha06'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:17.3.0'   // 11.6.2
+    implementation 'com.google.firebase:firebase-auth:19.3.0'   // 11.6.2
 }
+//Firebase
+apply plugin: 'com.google.gms.google-services'

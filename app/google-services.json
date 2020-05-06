@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "665671335654",
+    "firebase_url": "https://boa-viagem-f2e6d.firebaseio.com",
+    "project_id": "boa-viagem-f2e6d",
+    "storage_bucket": "boa-viagem-f2e6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665671335654:android:98b2c647e935d879dec527",
+        "android_client_info": {
+          "package_name": "com.example.boaviagem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665671335654-l4rcitt3jt3ulis480ivfo1jcshof81j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.boaviagem",
+            "certificate_hash": "3ed965d0505dc475864f607c38069b08a6a607a3"
+          }
+        },
+        {
+          "client_id": "665671335654-a6a6mcev7iht4v00usfgr7nh97f9o9og.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0LgkKKoI1Zlr5DyqxxbKEGFX4TYrWsI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665671335654-a6a6mcev7iht4v00usfgr7nh97f9o9og.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
