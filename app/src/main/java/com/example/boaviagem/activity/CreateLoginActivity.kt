@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import kotlinx.android.synthetic.main.activity_cria_login.*
 import java.lang.Exception
 
-class CriaLoginActivity : AppCompatActivity() {
+class CreateLoginActivity : AppCompatActivity() {
 
     private lateinit var email : TextInputEditText
     private lateinit var senha : TextInputEditText

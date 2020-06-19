@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.boaviagem.R
-import com.example.boaviagem.model.Login
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -78,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun abriTelaCadastro(view: View){
-        startActivity(Intent(this,CriaLoginActivity::class.java ).apply {})
+        startActivity(Intent(this,CreateLoginActivity::class.java ).apply {})
     }
 
     private fun campoNaoInvalido():Boolean{
