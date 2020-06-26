@@ -1,10 +1,10 @@
 package com.example.boaviagem.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.boaviagem.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -27,6 +27,23 @@ class LoginActivity : AppCompatActivity() {
 
         instanciaLayoutComXml()
     }
+
+    override fun onStart() {
+        super.onStart()
+        vericaSeUsuarioEstaLogado()
+    }
+
+    private fun vericaSeUsuarioEstaLogado() {
+        //autenticacao.signOut();
+        if (usuarioEstaLogado()) {
+            abrirTelaPrincipal()
+        }
+    }
+
+    private fun usuarioEstaLogado(): Boolean {
+        return autenticacao.currentUser != null
+    }
+
 
     private fun instanciaLayoutComXml(){
 
