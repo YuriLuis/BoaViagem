@@ -1,9 +1,7 @@
 package com.example.boaviagem.model
 
-class Login(private val login: String, private val senha : String){
+import java.io.Serializable
 
-    fun validaLogin(): Boolean{
+data class Login(private val idLogin: String, private val login: String, private val senha: String) : Serializable {
 
-        return (login == "teste01") and (senha == "12345")
-    }
 }

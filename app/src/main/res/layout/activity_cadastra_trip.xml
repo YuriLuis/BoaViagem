@@ -160,7 +160,7 @@
         android:layout_marginTop="32dp"
         android:clickable="true"
         app:backgroundTint="@color/corBotaoAdicionar"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton3"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonCancelarGasto"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +168,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/floatingActionButtonCancelarGasto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

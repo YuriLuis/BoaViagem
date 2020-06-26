@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#30DFD9</color>
     <color name="colorPrimaryDark">#7F7D81</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#35BA53</color>
 
     <color name="corBordaTextInputLayout">#6F7070</color>
     <color name="corBotaoAdicionar">#0F3E0F</color>
