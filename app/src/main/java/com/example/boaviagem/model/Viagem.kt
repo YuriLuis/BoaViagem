@@ -29,4 +29,8 @@ data class Viagem(
     fun adicionaGasto(gasto: Gasto) {
         gastos?.add(gasto)
     }
+
+    override fun toString(): String {
+        return destino
+    }
 }
