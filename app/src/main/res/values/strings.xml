@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BoaViagem</string>
     <string name="criadoComSucesso">Criado com sucesso</string>
+    <string name="campoObrigatorio">Campo Obrigatório</string>
+    <string name="tipoViagemErro">Informe o tipo da Viagem!!</string>
+    <string name="tipoGastoErro">Informe o tipo do Gasto!</string>
+    <string name="informeViagemErro">Informe a Viagem!</string>
 </resources>

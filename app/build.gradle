@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.boaviagem"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -40,6 +45,14 @@ dependencies {
     //Firebase
     implementation 'com.google.firebase:firebase-core:17.3.0'   // 11.6.2
     implementation 'com.google.firebase:firebase-auth:19.3.0'   // 11.6.2
+
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+
+    //Mascara de formatação https://github.com/AzimoLabs/MaskFormatter
+    implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
 }
 //Firebase
 apply plugin: 'com.google.gms.google-services'

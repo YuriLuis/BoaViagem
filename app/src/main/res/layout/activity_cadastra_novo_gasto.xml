@@ -45,7 +45,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputTextNumero"
+                android:id="@+id/inputTextValorGasto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Valor"
@@ -61,7 +61,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputTextTelefone"
+                android:id="@+id/textInputData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Data"
@@ -80,6 +80,7 @@
         android:layout_marginRight="24dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputDescricaoGasto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -94,6 +95,7 @@
         android:layout_marginRight="24dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputLocal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -108,7 +110,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:hint="Informe a Viagem!"
         android:padding="5dp"
         app:endIconMode="dropdown_menu">
 
@@ -118,6 +119,7 @@
             android:layout_height="55dp"
             android:dropDownHeight="wrap_content"
             android:enabled="false"
+            android:hint="Informe a Viagem"
             android:paddingTop="20dp">
 
         </AutoCompleteTextView>
@@ -128,15 +130,14 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatActionButtonAdicionaTrip"
+            android:id="@+id/floatActionButtonAdicionaGasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:clickable="true"
             app:backgroundTint="@color/corBotaoAdicionar"
-            app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonCancelarGasto"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonExcluir"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_input_add" />
@@ -150,9 +151,22 @@
             app:backgroundTint="@color/corBotaoCancelar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/floatActionButtonAdicionaTrip"
+            app:layout_constraintStart_toEndOf="@+id/floatingActionButtonExcluir"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/corBotaoExcluir"
+            android:clickable="true"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonCancelarGasto"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/floatActionButtonAdicionaGasto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

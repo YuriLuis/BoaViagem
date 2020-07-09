@@ -20,13 +20,13 @@ data class ViagemAdapterAutoComplete(val context : Activity , val resource: Int,
         if (convertView == null) {
             view = inflater.inflate(R.layout.dropdown_menu_popup_item, parent, false)
         }
-        val textView: TextView = view.findViewById(R.id.textDropdown)
+        val t: TextView = view.findViewById(R.id.textDropdown)
 
         val viagem: Viagem? = getItem(position)
         if (viagem != null) {
-            textView.text = viagem.destino
+            t.text = viagem.destino
         } else {
-            textView.text = ""
+            t.text = ""
             return view
         }
         return view
@@ -34,19 +34,5 @@ data class ViagemAdapterAutoComplete(val context : Activity , val resource: Int,
 
     override fun getCount(): Int {
         return objects.size
-    }
-
-    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-        if (convertView == null) {
-            view = inflater.inflate(R.layout.dropdown_menu_popup_item, parent, false)
-        }
-        val viagem: Viagem? = getItem(position)
-        val textView: TextView = view.findViewById(R.id.textDropdown)
-        if (viagem != null) {
-            textView.text = viagem.destino
-        } else {
-            textView.text = "Oops. There was a problem"
-        }
-        return view
     }
 }

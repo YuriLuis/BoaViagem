@@ -7,4 +7,5 @@
     <color name="corBordaTextInputLayout">#6F7070</color>
     <color name="corBotaoAdicionar">#0F3E0F</color>
     <color name="corBotaoCancelar">#DA374F</color>
+    <color name="corBotaoExcluir">#FF5722</color>
 </resources>

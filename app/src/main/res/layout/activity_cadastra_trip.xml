@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <RadioGroup
+            android:id="@+id/radioGroupTipoViagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -48,13 +49,13 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioButtonLazer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lazer" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButtonNegocio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Negócios" />
@@ -99,14 +100,13 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextDataPartida"
         android:layout_width="139dp"
         android:layout_height="41dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number|textPersonName|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -124,9 +124,11 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextDataChegada">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextOrcamento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Orçamento" />
+            android:hint="Orçamento"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -147,9 +149,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
@@ -160,7 +161,7 @@
         android:layout_marginTop="32dp"
         android:clickable="true"
         app:backgroundTint="@color/corBotaoAdicionar"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonCancelarGasto"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonCancelarViagem"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +169,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButtonCancelarGasto"
+        android:id="@+id/floatingActionButtonCancelarViagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

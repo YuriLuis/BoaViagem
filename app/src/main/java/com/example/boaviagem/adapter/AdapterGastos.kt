@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.boaviagem.R
-import com.example.boaviagem.model.Gasto
-import com.example.boaviagem.tests.CarregaArrays
+import com.example.boaviagem.model.Despesa
+import com.example.boaviagem.util.Formata
 
-class AdapterGastos(private val gastos: MutableList<Gasto>) :
+class AdapterGastos(private val gastos: MutableList<Despesa>) :
     RecyclerView.Adapter<AdapterGastos.MyViewHolder>() {
     private val TYPE_HEADER = 0
     private val TYPE_ITEM = 1
-    var onItemClick: ((Gasto) -> Unit)? = null
+    var onItemClick: ((Despesa) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -40,11 +40,10 @@ class AdapterGastos(private val gastos: MutableList<Gasto>) :
             }
         }
 
-        fun bind(gasto : Gasto) {
-            textViewDestino.text = gasto.descicao
-            val gastoConvetido = CarregaArrays.formataPorcetagem(gasto.valor)
+        fun bind(gasto : Despesa) {
+            textViewDestino.text = gasto.descricao
+            val gastoConvetido = Formata.formataPorcetagem(gasto.valor)
             textViewDataChegada.text =  "R$: $gastoConvetido"
         }
-
     }
 }

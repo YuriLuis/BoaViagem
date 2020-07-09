@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.boaviagem.R
 import com.example.boaviagem.model.Viagem
-import com.example.boaviagem.tests.CarregaArrays
+import com.example.boaviagem.util.Formata
 
 class AdapterViagens(private val viagens: MutableList<Viagem>) :
     RecyclerView.Adapter<AdapterViagens.MyViewHolder>() {
@@ -48,17 +48,17 @@ class AdapterViagens(private val viagens: MutableList<Viagem>) :
         fun bind(viagem : Viagem) {
             textViewDestino.text = viagem.destino
             textViewDataChegada.text = viagem.dataChegada
-            if (viagem.dataPartida == null){
+            if ((viagem.dataPartida == null) or (viagem.dataPartida.equals(""))){
                 textViewDataPartida.text = "Não Definido!"
             }else {
                 textViewDataPartida.text = viagem.dataPartida
             }
             var total = viagem.calculaGastos()
-            textViewGastos.text = "Total gastos R$: ${CarregaArrays.formataPorcetagem(total)}"
+            textViewGastos.text = "Total gastos R$: ${Formata.formataPorcetagem(total)}"
             progressBarOrcamento.max = viagem.orcamento.toInt()
             progressBarOrcamento.progress = total.toInt()
             var porcentagem = viagem.calculaPorcetagemGasto()
-            textPorcetagem.text = CarregaArrays.formataPorcetagem(porcentagem) + "%"
+            textPorcetagem.text = Formata.formataPorcetagem(porcentagem) + "%"
 
             selecionaCorProgressBar(porcentagem, progressBarOrcamento)
         }

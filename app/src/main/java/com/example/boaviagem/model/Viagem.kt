@@ -3,18 +3,20 @@ package com.example.boaviagem.model
 import java.io.Serializable
 
 data class Viagem(
-    val idViagem: String, val destino: String,
-    var gastos: ArrayList<Gasto>?, val tipoViagem: String,
+    val idViagem: Int?, val destino: String,
+    var despesa: ArrayList<Despesa>?, val tipoViagem: Int,
     val dataChegada: String, val dataPartida: String?,
     val orcamento: Double, val quantidadePessoas: Int,
-    val login: Login
+    val idLogin: Login?
 ) : Serializable {
 
+    constructor() : this(null, "", null, 0,
+    "", "", 0.0, 0, null)
 
     fun calculaGastos(): Double {
         var total: Double = 0.0
-        if (this.gastos != null) {
-            this.gastos!!.forEach { gasto ->
+        if (this.despesa != null) {
+            this.despesa!!.forEach { gasto ->
                 total += gasto.valor
             }
         }
@@ -26,11 +28,7 @@ data class Viagem(
         return (totalDespesa * 100) / orcamento
     }
 
-    fun adicionaGasto(gasto: Gasto) {
-        gastos?.add(gasto)
-    }
-
     override fun toString(): String {
-        return destino
-    }
+        return idViagem.toString()
+}
 }
